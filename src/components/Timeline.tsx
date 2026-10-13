@@ -3,9 +3,8 @@ import { motion } from 'motion/react';
 import { Heart, Music, Camera, Utensils, PartyPopper } from 'lucide-react';
 
 const events = [
-  { time: '08:00 AM', title: 'Church Ceremony', icon: Heart, desc: 'The Mass will commence at Our Lady of Sorrows Church, Kandawala.' },
-  { time: '11:04 AM', title: 'Poruwa Ceremony & Wedding Function', icon: PartyPopper, desc: 'Poruwa Ceremony commences at 11.04 am, followed by the wedding function at Senuri Grand Castello, Divulapitiya.' },
-  { time: 'July 24, 7:00 PM', title: 'Homecoming Function', icon: Utensils, desc: 'Evening celebration and dinner at Jetwing Blue, Negombo.' },
+  { time: '4:30 PM', title: 'Wedding Celebration', icon: PartyPopper, desc: 'Celebrations begin from 4.30 pm onwards at The Crystal Atrium, Paradise Inn Bolgoda.' },
+  { time: '5:00 PM', title: 'Poruwa Ceremony', icon: Heart, desc: 'Poruwa Ceremony commences at 5.00 pm at The Crystal Atrium, Paradise Inn Bolgoda.' },
 ];
 
 interface TimelineProps {

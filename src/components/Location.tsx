@@ -9,22 +9,13 @@ interface LocationProps {
 export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
   const venues = [
     {
-      id: 'ceremony',
-      name: "St. Mary's Church",
-      city: "Negombo",
-      quote: `"A beautiful and sacred place where we will unite in holy matrimony."`,
-      liveLocationUrl: "https://maps.app.goo.gl/kPtBACZFd3AcKa1u9",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Negombo%2C_St._Mary%27s_Church%2C_2025-07_CN-02.jpg",
-      label: "The Ceremony"
-    },
-    {
-      id: 'reception',
-      name: "Centrium Ballroom, Avenra Gardens",
-      city: "Negombo",
-      quote: `"A serene and elegant setting where we will celebrate our wedding function with joy and laughter."`,
-      liveLocationUrl: "https://maps.app.goo.gl/3HPomRVMHdbHUbo86",
-      imageUrl: "https://www.aha.lk/img/projects/1%20%281%291565002653.jpg",
-      label: "The Reception"
+      id: 'venue',
+      name: "The Crystal Atrium",
+      city: "Paradise Inn Bolgoda",
+      quote: `"A serene and elegant setting where we will celebrate our Poruwa ceremony and wedding with joy and laughter."`,
+      liveLocationUrl: "https://www.google.com/maps/search/?api=1&query=Paradise+Inn+Bolgoda",
+      mapEmbedUrl: "https://www.google.com/maps?q=Paradise+Inn+Bolgoda&output=embed",
+      label: "The Venue"
     }
   ];
 
@@ -111,10 +102,12 @@ export const Location: React.FC<LocationProps> = ({ event = 'both' }) => {
                   {/* Image Placeholder Masking for premium feel */}
                   <div className="absolute inset-0 bg-brand-lavender/10 mix-blend-multiply pointer-events-none z-20 group-hover/map:opacity-0 transition-opacity duration-1000" />
                   
-                  <img
-                    src={venue.imageUrl}
-                    alt={`${venue.name} Location`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-in-out group-hover/map:scale-105"
+                  <iframe
+                    src={venue.mapEmbedUrl}
+                    title={`${venue.name} Location`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 w-full h-full border-0"
                   />
 
                   {/* Decorative Location Pin Overlay */}

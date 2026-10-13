@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle, Loader2, Heart, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
+import { GOOGLE_SCRIPT_URL } from '../config';
 
 interface RSVPFormProps {
   inviteeName?: string;
@@ -16,7 +17,6 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
     dietaryNotes: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbyDuWCJjIQ7egU3VZBzAndlosVuJyfZnbGaEKA47SuOcj6iSQQys1ksRSaphGAB37V_/exec";
 
   useEffect(() => {
     if (inviteeName) {
@@ -35,9 +35,10 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
       payload.append('fullName', formData.fullName);
       payload.append('guests', formData.guests);
       payload.append('dietaryNotes', formData.dietaryNotes);
-      payload.append('event', eventParam);
 
-      await fetch(scriptUrl, {
+      if (!GOOGLE_SCRIPT_URL) throw new Error('GOOGLE_SCRIPT_URL is not set in src/config.ts');
+
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         body: payload,
@@ -89,11 +90,6 @@ export const RSVPForm: React.FC<RSVPFormProps> = ({ inviteeName = '', eventName 
               : `Your presence means the world to us. Please kindly let us know if you will be able to join our celebration.`
             }
           </p>
-          <div className="mt-6 mb-8 text-sm font-sans tracking-[0.2em] uppercase font-semibold text-brand-plum drop-shadow-sm leading-loose">
-            RSVP BY <br />
-            076 429 1756 - Apsara <br /> 
-            076 533 9931 - Teshan
-          </div>
           <div className="w-12 h-[1px] bg-brand-lavender/50 mx-auto lg:mx-0" />
         </div>
 
