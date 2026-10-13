@@ -65,14 +65,6 @@ export function InvitationContent({
 
       <DeferredMount active={active} delay={120} minHeight="40vh">
         <div className="py-24 sm:py-32 bg-gradient-to-b from-brand-blush via-white to-brand-blush relative overflow-hidden">
-          {/* Watermark Background Image covering full section including padding */}
-          <div className="absolute inset-x-0 bottom-0 top-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-10 mix-blend-multiply">
-            <img 
-              src="/WhatsApp%20Image%202026-07-09%20at%2021.34.28.jpeg" 
-              alt="Watermark background" 
-              className="w-full h-full object-cover object-top sm:object-center sepia contrast-125" 
-            />
-          </div>
           <CoupleDetails />
         </div>
       </DeferredMount>
