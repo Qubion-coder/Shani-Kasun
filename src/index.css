@@ -63,3 +63,15 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-brand-plum);
 }
+.gold-shimmer-text {
+  background: linear-gradient(110deg, #8a6d2f 0%, #b89645 30%, #f3dfa2 50%, #b89645 70%, #8a6d2f 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 6s linear infinite;
+}
+
+@keyframes gold-shimmer {
+  to { background-position: -250% center; }
+}

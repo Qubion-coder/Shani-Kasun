@@ -21,5 +21,5 @@ export const INVITATION_IMAGE_URLS = [
   '/IMG_6941.JPG.jpeg',
   '/IMG_6942.JPG.jpeg',
   '/IMG_6945.JPG.jpeg',
-  '/ivory_satin_bow-removebg-preview.png',
+  '/Champagne%20Monogram%20Wedding%20Invitation.png',
 ] as const;

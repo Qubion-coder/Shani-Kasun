@@ -84,12 +84,12 @@ export function InvitationContent({
 
 
       <DeferredMount active={active} delay={360} minHeight="20vh">
-        <div className="py-24 sm:py-32 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <img 
+        <div className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-[#fdfbf7] via-white to-[#fdfbf7]">
+          <div className="absolute inset-0 pointer-events-none">
+            <img
               src="/ChatGPT Image Jul 5, 2026, 02_20_06 AM.png"
-              alt="Countdown Background"
-              className="w-full h-full object-cover" 
+              alt=""
+              className="w-full h-full object-cover opacity-20 mix-blend-multiply"
             />
           </div>
           <div className="relative z-10 max-w-6xl mx-auto px-6 mb-16 text-center">

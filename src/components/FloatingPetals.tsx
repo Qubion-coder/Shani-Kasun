@@ -16,22 +16,22 @@ function getPetalCount() {
   if (typeof window === 'undefined') return 12;
   const coarse = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   const narrow = window.innerWidth < 768;
-  if (coarse || narrow) return 10;
-  return 18;
+  if (coarse || narrow) return 14;
+  return 24;
 }
 
 export const FloatingPetals: React.FC = () => {
   const [petals, setPetals] = useState<Petal[]>([]);
 
   useEffect(() => {
-    // Brush pink / rose colors
-    const colors = ['#f0b9c3', '#f4c6c6', '#e8a5b3', '#f8dbdf'];
+    // Soft blush and champagne colors
+    const colors = ['#f0b9c3', '#f4c6c6', '#f8dbdf', '#ecd9b0', '#f3e6cc'];
     const count = getPetalCount();
 
     const newPetals = Array.from({ length: count }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
-      size: Math.random() * 20 + 20, // increased size: 20 to 40px
+      size: Math.random() * 7 + 7, // small petals: 7 to 14px
       rotation: Math.random() * 360,
       duration: Math.random() * 15 + 15,
       delay: Math.random() * -15, // Negative delay so they are already falling when the page loads!
@@ -63,7 +63,7 @@ export const FloatingPetals: React.FC = () => {
             rotateZ: petal.rotation + 720,
             rotateX: petal.rotation + 360,
             rotateY: petal.rotation + 540,
-            opacity: [0, 1, 1, 0],
+            opacity: [0, 0.85, 0.85, 0],
           }}
           transition={{
             duration: petal.duration,
@@ -77,7 +77,7 @@ export const FloatingPetals: React.FC = () => {
             width={petal.size}
             height={petal.size}
             viewBox="0 0 24 24"
-            className="drop-shadow-md"
+            className="drop-shadow-sm"
           >
             <defs>
               <radialGradient id={`petal-grad-${petal.id}`} cx="30%" cy="30%" r="70%">
